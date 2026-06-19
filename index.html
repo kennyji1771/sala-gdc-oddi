@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mapa Mental - Misión Ribas</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Roboto,sans-serif;background:#f0f4fa;padding:20px;}
+.app{max-width:1300px;margin:auto;background:white;border-radius:28px;box-shadow:0 10px 25px rgba(0,0,0,0.1);overflow:hidden;}
+.toolbar{background:#1e2f4f;padding:12px 20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;}
+.toolbar button{background:#ffcd3c;border:none;padding:6px 14px;border-radius:30px;font-weight:bold;cursor:pointer;}
+.mapa{padding:20px;max-height:600px;overflow-y:auto;background:white;}
+.card{background:white;border-left:5px solid;border-radius:20px;padding:10px 16px;margin-bottom:12px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.card:hover{background:#f5f7fb;transform:translateX(3px);}
+.level-0{border-left-color:#e67e22;background:#fff6ea;}
+.level-1{border-left-color:#3b82f6;}
+.level-2{border-left-color:#10b981;}
+.level-3{border-left-color:#8b5cf6;}
+.title{font-weight:600;display:flex;justify-content:space-between;}
+.children{margin-left:25px;padding-left:15px;border-left:2px dashed #bbb;margin-top:8px;}
+.collapsed{display:none;}
+.icon{font-size:1.1rem;opacity:0.6;margin-left:10px;}
+footer{background:#eef2f8;text-align:center;padding:10px;font-size:12px;}
+</style>
+</head>
+<body>
+<div class="app">
+    <div class="toolbar">
+        <div style="color:white;font-weight:bold;">🧠 Mapa Mental - Misión Ribas</div>
+        <div>
+            <button id="expandirTodo">🔽 Expandir todo</button>
+            <button id="colapsarTodo">🔼 Colapsar todo</button>
+        </div>
+    </div>
+    <div class="mapa" id="mapa"></div>
+    <footer>Haz clic en las tarjetas para expandir/colapsar | Inicia todo colapsado</footer>
+</div>
+<script>
+    const textoOriginal = "# RESÚMEN EJECUTIVO – OPERACIÓN DESASTRE 02-2026\n\n## DATOS DE IDENTIFICACIÓN DEL REPORTE CONSOLIDADO\n\n### PARA\n#### Coronel Ramos\n#### Comandante de la REDI Especial Sucre\n\n### DE\n#### Secretario de la ZODI Capital\n#### Sala de Gestión y Organización ODDI – GDC / Alcaldía del Municipio Libertador\n\n### FECHA\n#### 19 de junio de 2026\n\n### HORA DE CORTE\n#### 18:00 horas\n\n### REFERENCIA\n#### Situación consolidada de las ZODI Capital, La Guaira y Miranda\n\n---\n\n## 1. SITUACIÓN GENERAL\n\n### 1.1. Activación de los comités ODDI\n#### 1.1.1. Se reporta la activación total de los cinco comités ODDI en las tres ZODI afectadas (Capital, La Guaira y Miranda).\n#### 1.1.2. Operan bajo la coordinación de la Sala Situacional ODDI-Región Capital, instalada en el Gobierno de Caracas (GDC) – Alcaldía del Municipio Libertador.\n\n### 1.2. Cifras consolidadas de afectación por ZODI\n\n#### 1.2.1. ZODI Capital\n##### Población afectada: 60.000\n##### Heridos: 9.000\n##### Fallecidos: 1.200\n##### Desplazados: 24.000\n##### Albergues habilitados: 12\n\n#### 1.2.2. ZODI La Guaira\n##### Población afectada: 45.000\n##### Heridos: 6.750\n##### Fallecidos: 900\n##### Desplazados: 18.000\n##### Albergues habilitados: 8\n\n#### 1.2.3. ZODI Miranda\n##### Población afectada: 50.000\n##### Heridos: 7.500\n##### Fallecidos: 1.000\n##### Desplazados: 20.000\n##### Albergues habilitados: 10\n\n#### 1.2.4. Totales consolidados\n##### Población afectada: **155.000**\n##### Heridos: **23.250**\n##### Fallecidos: **3.100**\n##### Desplazados: **62.000**\n##### Albergues habilitados: **30**\n\n---\n\n## 2. ESTADO DE LOS COMITÉS ODDI\n\n### 2.1. Comité C1 – Patriótico\n#### 2.1.1. Estado: **Operativo**.\n#### 2.1.2. Aspectos destacados:\n##### 2.1.2.1. Desactivados 47 rumores en redes sociales.\n##### 2.1.2.2. Emitidos 3 comunicados oficiales.\n##### 2.1.2.3. Coordinación activa con medios locales en las tres ZODI.\n\n### 2.2. Comité C2 – Económico\n#### 2.2.1. Estado: **Operativo**.\n#### 2.2.2. Aspectos destacados:\n##### 2.2.2.1. Inventario SALTE consolidado:\n###### 2.2.2.1.1. 1.5 millones de litros de agua/día disponibles.\n###### 2.2.2.1.2. 62.000 raciones diarias.\n##### 2.2.2.2. 15 vehículos requisados en la ZODI Capital.\n##### 2.2.2.3. 8 grúas identificadas en la ZODI La Guaira.\n##### 2.2.2.4. 5 depósitos de combustible asegurados en la ZODI Miranda.\n\n### 2.3. Comité C3 – Social\n#### 2.3.1. Estado: **Operativo**.\n#### 2.3.2. Aspectos destacados:\n##### 2.3.2.1. 30 albergues operativos en total.\n##### 2.3.2.2. 62.000 desplazados registrados.\n##### 2.3.2.3. Gestión de fallecidos en curso (identificación y disposición final).\n##### 2.3.2.4. Coordinación con MPPS y forenses para identificación de víctimas.\n\n### 2.4. Comité C4 – Orden Interno\n#### 2.4.1. Estado: **Operativo**.\n#### 2.4.2. Aspectos destacados:\n##### 2.4.2.1. 28 puestos de control establecidos en las tres ZODI.\n##### 2.4.2.2. 4 incidentes de orden público controlados.\n##### 2.4.2.3. Custodia de instalaciones críticas (hospitales, depósitos, subestaciones) asegurada.\n\n### 2.5. Comité C5 – Movilización\n#### 2.5.1. Estado: **Operativo**.\n#### 2.5.2. Aspectos destacados:\n##### 2.5.2.1. 1.200 milicianos movilizados.\n##### 2.5.2.2. 300 reservistas en alerta.\n##### 2.5.2.3. Requisiciones en curso (vehículos y maquinaria).\n##### 2.5.2.4. Evaluación de riesgos estructurales en 12 zonas críticas.\n\n---\n\n## 3. SITUACIÓN DE RECURSOS (SALTE) Y NECESIDADES URGENTES\n\n### 3.1. Agua potable\n#### 3.1.1. Disponible: 1.5 millones de litros/día.\n#### 3.1.2. Necesidad urgente: Abastecimiento sostenido.\n#### 3.1.3. Observación:\n##### 3.1.3.1. Sistemas de acueducto colapsados en 60% de las zonas afectadas.\n##### 3.1.3.2. Se requiere distribución con camiones cisterna.\n\n### 3.2. Alimentos\n#### 3.2.1. Disponible: 62.000 raciones/día.\n#### 3.2.2. Necesidad urgente: Reposición en 48 horas.\n#### 3.2.3. Observación:\n##### 3.2.3.1. Depósitos de La Guaira afectados por el tsunami.\n##### 3.2.3.2. Se requiere traslado de alimentos desde la ZODI Capital.\n\n### 3.3. Medicinas e insumos\n#### 3.3.1. Disponible: Kits de trauma parciales.\n#### 3.3.2. Necesidad urgente: 23.250 kits completos.\n#### 3.3.3. Observación:\n##### 3.3.3.1. Hospitales de campaña operativos pero con stock limitado.\n##### 3.3.3.2. Se requiere apoyo del MPPS y médicos asimilados.\n\n### 3.4. Combustible\n#### 3.4.1. Disponible: Reservas para 3 días.\n#### 3.4.2. Necesidad urgente: Abastecimiento urgente.\n#### 3.4.3. Observación:\n##### 3.4.3.1. Escasez en las tres ZODI.\n##### 3.4.3.2. Afecta transporte de heridos y distribución de alimentos.\n\n### 3.5. Maquinaria pesada\n#### 3.5.1. Disponible: 15 unidades disponibles.\n#### 3.5.2. Necesidad urgente: 8 adicionales requeridas.\n#### 3.5.3. Observación:\n##### 3.5.3.1. Para despeje de vías y remoción de escombros.\n##### 3.5.3.2. Especialmente crítico en Monte Piedad (Capital) y vías costeras (La Guaira).\n\n---\n\n## 4. RIESGOS ACTIVOS Y ESCENARIOS\n\n### 4.1. Réplicas sísmicas (>5.0)\n#### 4.1.1. Nivel de riesgo: **Alto**.\n#### 4.1.2. Acciones de mitigación en curso:\n##### 4.1.2.1. Monitoreo continuo por C4-Subcomité de Riesgos.\n##### 4.1.2.2. Planes de evacuación preventiva activos para zonas de ladera (Monte Piedad, Pagüita, vías costeras de La Guaira).\n\n### 4.2. Deslizamientos de tierra\n#### 4.2.1. Nivel de riesgo: **Alto**.\n#### 4.2.2. Acciones de mitigación en curso:\n##### 4.2.2.1. Evaluación estructural en 12 zonas críticas.\n##### 4.2.2.2. Despeje de vías con maquinaria disponible.\n\n### 4.3. Brotes epidemiológicos\n#### 4.3.1. Nivel de riesgo: **Medio**.\n#### 4.3.2. Acciones de mitigación en curso:\n##### 4.3.2.1. Coordinación con MPPS para brigadas de salud en albergues.\n##### 4.3.2.2. Distribución de kits de higiene.\n\n### 4.4. Alteración del orden público\n#### 4.4.1. Nivel de riesgo: **Medio**.\n#### 4.4.2. Acciones de mitigación en curso:\n##### 4.4.2.1. Puestos de control PNB y PM activos.\n##### 4.4.2.2. Patrullaje mixto en zonas de alta densidad.\n##### 4.4.2.3. C1 activo en comunicación de calma.\n\n---\n\n## 5. COORDINACIONES INSTITUCIONALES Y ENLACES\n\n### 5.1. Gobierno de Caracas (GDC)\n#### 5.1.1. Estado de enlace: **Activo**.\n#### 5.1.2. Logros / Acciones:\n##### 5.1.2.1. Habilitación de 5 escuelas como albergues adicionales.\n##### 5.1.2.2. Apoyo logístico para la Sala Situacional.\n\n### 5.2. Alcaldía del Municipio Libertador\n#### 5.2.1. Estado de enlace: **Activo**.\n#### 5.2.2. Logros / Acciones:\n##### 5.2.2.1. Coordinación para el uso de instalaciones municipales.\n##### 5.2.2.2. Censo de damnificados en el centro histórico.\n\n### 5.3. Ministerio de Salud (MPPS)\n#### 5.3.1. Estado de enlace: **Activo**.\n#### 5.3.2. Logros / Acciones:\n##### 5.3.2.1. Envío de 10 médicos asimilados a La Guaira.\n##### 5.3.2.2. Coordinación forense para identificación de fallecidos.\n\n### 5.4. Ministerio de Transporte\n#### 5.4.1. Estado de enlace: **Activo**.\n#### 5.4.2. Logros / Acciones:\n##### 5.4.2.1. Evaluación de vías.\n##### 5.4.2.2. Priorización del despeje de la Autopista Caracas-La Guaira y vías secundarias de Miranda.\n\n### 5.5. Poder Popular (258 contactos)\n#### 5.5.1. Estado de enlace: **Activo**.\n#### 5.5.2. Logros / Acciones:\n##### 5.5.2.1. Articulación con consejos comunales, UBCH y jefes de calle.\n##### 5.5.2.2. Censo de afectados y distribución de ayuda.\n\n### 5.6. Policía Nacional Bolivariana (PNB)\n#### 5.6.1. Estado de enlace: **Activo**.\n#### 5.6.2. Logros / Acciones:\n##### 5.6.2.1. Apoyo en puestos de control y custodia de depósitos.\n##### 5.6.2.2. Patrullaje en zonas de riesgo de saqueos.\n\n### 5.7. Armada y Capitanía de Puerto\n#### 5.7.1. Estado de enlace: **Activo**.\n#### 5.7.2. Logros / Acciones:\n##### 5.7.2.1. Coordinación para evacuación marítima y control de derrames en La Guaira.\n\n---\n\n## 6. RECOMENDACIONES AL COMANDANTE\n\n### 6.1. Priorizar el despeje de vías de acceso\n#### 6.1.1. Enfocar esfuerzos en hospitales y centros de acopio, especialmente en La Guaira y el sector Monte Piedad (Capital).\n#### 6.1.2. Asignar maquinaria adicional y personal de ingeniería.\n\n### 6.2. Autorizar la requisición urgente de combustible y vehículos de carga\n#### 6.2.1. Garantizar la continuidad del abastecimiento de agua, alimentos y medicinas.\n\n### 6.3. Aprobar la evacuación preventiva\n#### 6.3.1. Evacuar comunidades en zonas de alto riesgo (Pagüita, Monte Piedad, vías costeras de La Guaira).\n#### 6.3.2. Activar protocolos de C3 y C4 para albergues y seguridad.\n\n### 6.4. Solicitar refuerzo médico y forense al MPPS\n#### 6.4.1. Atender a los 23.250 heridos y gestionar la identificación de fallecidos.\n#### 6.4.2. Coordinar con C3 para el apoyo psicológico a deudos.\n\n### 6.5. Mantener la comunicación pública activa\n#### 6.5.1. Mediante C1, emitir partes diarios que contrarresten rumores.\n#### 6.5.2. Orientar a la población sobre rutas de evacuación y puntos de ayuda.\n\n---\n\n## 7. CIERRE Y DISPONIBILIDAD\n\n### 7.1. Actualización continua\n#### 7.1.1. La Sala Situacional ODDI-Región Capital mantiene actualización continua de la información.\n\n### 7.2. Disposición a ampliar información\n#### 7.2.1. Se encuentra a disposición del Comandante de la REDI Especial Sucre para ampliar cualquier dato o presentar los productos cartográficos detallados.\n\n### 7.3. Frase de cierre\n#### \"Nada más que reportar.\"\n\n### 7.4. Firma y cargo\n#### Secretario de la ZODI Capital\n#### Sala de Gestión y Organización ODDI – GDC / Alcaldía del Municipio Libertador\n#### Operación Desastre 02-2026\n\n**Fin del documento**";
+    function parsear(texto){
+        const lineas=texto.split(/\r?\n/);
+        const nodos=[]; let pila=[]; let id=1;
+        for(let linea of lineas){
+            linea=linea.trim(); if(!linea)continue;
+            let nivel=-1, etiqueta=linea;
+            if(linea.startsWith("# ")){nivel=0; etiqueta=linea.slice(2).trim();}
+            else if(linea.startsWith("## ")){nivel=1; etiqueta=linea.slice(3).trim();}
+            else if(linea.startsWith("### ")){nivel=2; etiqueta=linea.slice(4).trim();}
+            else if(linea.startsWith("#### ")){nivel=3; etiqueta=linea.slice(5).trim();}
+            else if(linea.startsWith("##### ")){nivel=4; etiqueta=linea.slice(6).trim();}
+            else if(linea.startsWith("- ")||linea.startsWith("* ")){nivel=pila.length?pila[pila.length-1].nivel+1:1; etiqueta=linea.slice(2).trim();}
+            else{nivel=pila.length?pila[pila.length-1].nivel+1:1; etiqueta=linea;}
+            while(pila.length&&pila[pila.length-1].nivel>=nivel) pila.pop();
+            const padreId=pila.length?pila[pila.length-1].id:null;
+            const nuevoId=id++;
+            nodos.push({id:nuevoId, etiqueta, nivel, padreId});
+            pila.push({id:nuevoId, nivel});
+        }
+        const hijosMap=new Map(); nodos.forEach(n=>hijosMap.set(n.id,[]));
+        nodos.forEach(n=>{if(n.padreId) hijosMap.get(n.padreId).push(n.id);});
+        const raices=nodos.filter(n=>n.padreId===null);
+        return {nodos, hijosMap, raices};
+    }
+    function renderizar(raices, nodosMap, hijosMap){
+        const contenedor=document.getElementById('mapa');
+        if(!raices.length){contenedor.innerHTML='<div style="padding:20px;">No se encontró jerarquía</div>'; return;}
+        const build=(idNodo)=>{
+            const nodo=nodosMap.get(idNodo); if(!nodo) return null;
+            const hijos=hijosMap.get(idNodo)||[];
+            const card=document.createElement('div');
+            card.className='card level-'+Math.min(nodo.nivel,7);
+            const tituloDiv=document.createElement('div');
+            tituloDiv.className='title';
+            const span=document.createElement('span');
+            span.textContent=nodo.etiqueta;
+            tituloDiv.appendChild(span);
+            let icono=null;
+            if(hijos.length){
+                icono=document.createElement('span');
+                icono.className='icon';
+                icono.textContent='▶';
+                tituloDiv.appendChild(icono);
+            }
+            card.appendChild(tituloDiv);
+            let childDiv=null;
+            if(hijos.length){
+                childDiv=document.createElement('div');
+                childDiv.className='children collapsed';
+                for(let h of hijos){
+                    const sub=build(h);
+                    if(sub) childDiv.appendChild(sub);
+                }
+                card.appendChild(childDiv);
+                card.addEventListener('click',(e)=>{
+                    e.stopPropagation();
+                    if(childDiv.classList.contains('collapsed')){
+                        childDiv.classList.remove('collapsed');
+                        if(icono) icono.textContent='▼';
+                    }else{
+                        childDiv.classList.add('collapsed');
+                        if(icono) icono.textContent='▶';
+                    }
+                });
+            }
+            return card;
+        };
+        const rootDiv=document.createElement('div');
+        for(let r of raices){
+            const rc=build(r.id);
+            if(rc) rootDiv.appendChild(rc);
+        }
+        contenedor.innerHTML=''; contenedor.appendChild(rootDiv);
+    }
+    const {nodos, hijosMap, raices}=parsear(textoOriginal);
+    const nodosMap=new Map(); nodos.forEach(n=>nodosMap.set(n.id,n));
+    renderizar(raices, nodosMap, hijosMap);
+    document.getElementById('expandirTodo').addEventListener('click',()=>{
+        document.querySelectorAll('.children').forEach(c=>c.classList.remove('collapsed'));
+        document.querySelectorAll('.icon').forEach(i=>i.textContent='▼');
+    });
+    document.getElementById('colapsarTodo').addEventListener('click',()=>{
+        document.querySelectorAll('.children').forEach(c=>c.classList.add('collapsed'));
+        document.querySelectorAll('.icon').forEach(i=>i.textContent='▶');
+    });
+</script>
+</body>
+</html>
